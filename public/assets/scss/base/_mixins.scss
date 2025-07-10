@@ -1,0 +1,137 @@
+// main: ../style.scss
+/* Media Queries */
+$tablet-width: 768px;
+$desktop-width: 1024px;
+
+@mixin mobile {
+  @media (max-width: #{$tablet-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$desktop-width}) {
+    @content;
+  }
+}
+
+@mixin retina {
+  @media
+    only screen and (-webkit-min-device-pixel-ratio: 2),
+    only screen and (min--moz-device-pixel-ratio: 2),
+    only screen and (-o-min-device-pixel-ratio: 2/1),
+    only screen and (min-device-pixel-ratio: 2),
+    only screen and (min-resolution: 192dpi),
+    only screen and (min-resolution: 2dppx) {
+    @content;
+  }
+}
+
+@mixin print {
+  @media print {
+    @content;
+  }
+}
+
+
+// Buttn Variants
+@mixin button-variant($color, $background, $border) {
+  color: $color;
+  background-color: $background;
+  border-color: $border;
+
+  &:focus,
+  &:hover,
+  &:active,
+  &:active:focus,
+  &:active:hover,
+  .open>&.dropdown-toggle,
+  .open>&.dropdown-toggle:hover,
+  .open>&.dropdown-toggle:focus {
+    color: $color;
+    background-color: darken($background, 5%);
+    border-color: darken($border, 5%);
+  }
+
+  &.btn-outline {
+    color: $background;
+    background: transparent;
+
+    &:focus,
+    &:hover {
+      color: $color;
+      background-color: $background;
+    }
+  }
+
+  .open>&.dropdown-toggle {
+
+  }
+}
+
+
+
+/* Placeholder */
+@mixin placeholder {
+  &::-webkit-input-placeholder {
+    @content;
+  }
+  &:-moz-placeholder {
+    @content;
+  }
+  &::-moz-placeholder {
+    @content;
+  }
+  &:-ms-input-placeholder {
+    @content;
+  }
+}
+
+
+/* Set Margin & Padding */
+@mixin allspace($top-bottom: 0, $left-right: 0) {
+	padding: $top-bottom $left-right;
+	margin: $top-bottom $left-right;
+}
+
+
+
+/* Making tiny, small, large, huge classes */
+$spacing-unit-tiny:  round(0.25 * $spacing-unit);
+$spacing-unit-small: round(0.5  * $spacing-unit);
+$spacing-unit-large: round(2    * $spacing-unit);
+$spacing-unit-huge:  round(4    * $spacing-unit);
+
+@mixin sizes($properties...) {
+
+  &--tiny {
+    @each $property in $properties {
+      #{$property}: $spacing-unit-tiny;
+    }
+  }
+
+  &--small {
+    @each $property in $properties {
+      #{$property}: $spacing-unit-small;
+    }
+  }
+
+  &--large {
+    @each $property in $properties {
+      #{$property}: $spacing-unit-large;
+    }
+  }
+
+  &--huge {
+    @each $property in $properties {
+      #{$property}: $spacing-unit-huge;
+    }
+  }
+
+}

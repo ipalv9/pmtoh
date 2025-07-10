@@ -1,0 +1,31 @@
+// main: ../style.scss
+/********************************
+ *********************************
+HEADER
+ *********************************
+ *********************************/
+.main-header {
+  height: 200px;
+  width: 100%;
+  position: relative;
+  background-position: center center;
+  background-size: cover;
+  overflow: hidden;
+
+  .content {
+    @include position(absolute, 50% null null 50%);
+    transform: translateY(-50%) translateX(-50%);
+    text-align: center;
+
+    h3 {
+      letter-spacing: 0.1em;
+    }
+  }
+}
+
+.header-bg {
+  background: #000;
+  img {
+    opacity: .5;
+  }
+}

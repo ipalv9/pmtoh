@@ -1,0 +1,25 @@
+// compileExpanded ../css/$1.css
+@import "base/variables";
+
+/*
+* Name:        #{ $theme-name }
+* Written by:   Unifato - (http://unifato.com)
+* Version:      1.0.0
+*/
+
+@charset "UTF-8";
+
+@import 'vendors/bourbon';
+@import 'base/base';
+@import 'base/helpers';
+@import 'base/mixins';
+
+/*
+ * Layout Styling
+ * --------------
+ */
+
+@import 'layouts/header';
+@import 'layouts/sidebar';
+@import 'layouts/footer';
+@import 'layouts/content';
