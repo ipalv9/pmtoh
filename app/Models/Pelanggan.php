@@ -13,4 +13,10 @@ class Pelanggan extends Model
         'no_handphone',
         'alamat',
     ];
+
+    // Relasi: 1 pelanggan punya 1 pesanan
+    public function pemesanan()
+    {
+        return $this->belongTo(Pemesanan::class);
+    }
 }

@@ -35,12 +35,6 @@
                                         placeholder="Masukkan Tujuan Anda" required>
                                 </div>
 
-                                <div class="mb-3">
-                                    <label for="tarif" class="form-label">Tarif</label>
-                                    <input type="number" name="tarif" class="form-control" id="tarif"
-                                        placeholder="Masukkan Tarif" required>
-                                </div>
-
                                 <button type="submit" class="btn btn-primary">
                                     <i class="fa fa-plus"></i> Tambah
                                 </button>

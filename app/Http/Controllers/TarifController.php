@@ -35,14 +35,12 @@ class TarifController extends Controller
     {
         // proses tambah
         $request->validate([
-        'dari' => 'required',
-        'tujuan' => 'required'
-        'tarif' => 'required,
-    ]);
+            'dari' => 'required|string',
+            'tujuan' => 'required|string',
+        ]);
         $tarif = new Tarif;
         $tarif->dari = $request->dari;
         $tarif->tujuan = $request->tujuan;
-        $tarif->tarif = $request->tarif;
         $tarif->save();
 
         return redirect('/tarif');
@@ -76,7 +74,6 @@ class TarifController extends Controller
         $tarif = Tarif::find($id);
         $tarif->dari = $request->dari;
         $tarif->tujuan = $request->tujuan;
-        $tarif->tarif = $request->tarif;
         $tarif->save();
 
         return redirect('/tarif');

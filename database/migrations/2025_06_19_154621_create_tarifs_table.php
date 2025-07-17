@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->string('dari',100);
             $table->string('tujuan',100);
-            $table->integer('tarif');
             $table->timestamps();
         });
     }

@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PelangganController;
 use App\Http\Controllers\TarifController;
+use App\Http\Controllers\PemesananController;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,3 +50,10 @@ Route::post('/tarif', [TarifController::class, 'store']);
 Route::get('/tarif/edit/{id}', [TarifController::class, 'edit']);
 Route::put('/tarif/{id}', [TarifController::class, 'update']);
 Route::delete('/tarif/{id}', [TarifController::class, 'destroy']);
+
+Route::get('/pemesanan', [PemesananController::class, 'index'])->name('pemesanan');
+Route::get('/pemesanan/create', [PemesananController::class, 'create']);
+Route::post('/pemesanan', [PemesananController::class, 'store']);
+Route::get('/pemesanan/edit/{id}', [PemesananController::class, 'edit']);
+Route::put('/pemesanan/{id}', [PemesananController::class, 'update']);
+Route::delete('/pemesanan/{id}', [PemesananController::class, 'destroy']);

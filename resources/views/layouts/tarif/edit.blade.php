@@ -31,12 +31,6 @@
                                     value="{{ $tarif->tujuan }}" required>
                             </div>
 
-                            <div class="mb-3">
-                                <label for="tarif" class="form-label">Tarif</label>
-                                <input type="number" class="form-control" id="tarif" name="tarif"
-                                    value="{{ $tarif->tarif }}" min="0" required>
-                            </div>
-
                             <div class="d-flex justify-content-between">
                                 <a href="{{ url('/tarif') }}" class="btn btn-secondary">Kembali</a>
                                 <button type="submit" class="btn btn-success">Simpan Perubahan</button>

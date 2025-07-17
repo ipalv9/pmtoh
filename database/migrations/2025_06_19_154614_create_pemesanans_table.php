@@ -17,6 +17,7 @@ return new class extends Migration
             $table->bigInteger('id_tarif');
             $table->date('tgl_tiket');
             $table->integer('jumlah');
+            $table->decimal('harga',10,2);
             $table->enum('status',['pending','berhasil','pengiriman']);
             $table->timestamps();
         });

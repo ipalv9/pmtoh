@@ -11,6 +11,10 @@ class Tarif extends Model
     protected $fillable = [
         'dari',
         'tujuan',
-        'tarif',
     ];
+
+    public function pemesanans()
+    {
+        return $this->belongTo(Pemesanan::class);
+    }
 }

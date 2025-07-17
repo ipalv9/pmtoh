@@ -1,6 +1,6 @@
 @extends('layouts.template')
 
-@section('title', 'Tarif')
+@section('title', 'pelanggan')
 
 <!-- @section('headline')
     Pelanggan
@@ -12,8 +12,8 @@
         <div class="col-lg-12">
             <div class="card shadow">
                 <div class="card-header d-flex justify-content-between align-items-center">
-                    <h2 class="mb-0">Daftar Tarif</h2>
-                    <a href="{{ url('/tarif/create') }}" class="btn btn-primary btn-sm">
+                    <h2 class="mb-0">Daftar Pemesanan</h2>
+                    <a href="{{ url('/pemesanan/create') }}" class="btn btn-primary btn-sm">
                         <i class="fa fa-user-plus me-1"></i> Tambah Data
                     </a>
                 </div>
@@ -31,21 +31,37 @@
                             <thead class="table-light">
                                 <tr>
                                     <th class="text-center">No</th>
-                                    <th class="text-center">Dari</th>
-                                    <th class="text-center">Tujuan</th>
+                                    <th class="text-center">Id Pelanggan</th>
+                                    <th class="text-center">Id Tarif</th>
+                                    <th class="text-center">Tgl Tiket</th>
+                                    <th class="text-center">Jumlah</th>
+                                    <th class="text-center">Harga</th>
+                                    <th class="text-center">Status</th>
                                     <th class="text-center">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @forelse ($tarif as $data)
+                                @forelse ($pemesanan as $data)
                                     <tr>
                                         <td>{{ $nomor++ }}</td>
-                                        <td>{{ $data->dari }}</td>
-                                        <td>{{ $data->tujuan }}</td>
+                                        <td>{{ optional( $data->pelanggan) ->nama ?? 'Data tidak ada' }}</td>
+                                        
+                                         <td>{{ optional($data->tarif)->dari ?? 'Data tidak ada' }}</td>
+                                        <td>{{ $data->tgl_tiket }}</td>
+                                        <td>{{ $data->jumlah }}</td>
+                                        <td>{{ $data->harga }}</td>
+                                        <td><span class="badge
+                                                @if($data->status == 'pending') bg-success
+                                                @elseif($data->status == 'berhasil') bg-success
+                                                @elseif($data->status == 'pengiriman') bg-warning
+                                                @endif">
+                                                {{ ucfirst($data->status) }}
+                                            </span></td>
                                         <td>
+
                                             <div class="btn-group" role="group">
                                                 <!-- Tombol Edit -->
-                                                <a href="{{ url('/tarif/edit/' . $data->id) }}"
+                                                <a href="{{ url('/pemesanan/edit/' . $data->id) }}"
                                                     class="btn btn-outline-info btn-sm" title="Edit">
                                                     <i class="fa fa-edit"></i>
                                                 </a>
@@ -63,7 +79,7 @@
                                                 aria-labelledby="modalLabel{{ $data->id }}" aria-hidden="true">
                                                 <div class="modal-dialog modal-dialog-centered">
                                                     <div class="modal-content">
-                                                        <form action="{{ url('/tarif/' . $data->id) }}" method="POST">
+                                                        <form action="{{ url('/pemesanan/' . $data->id) }}" method="POST">
                                                             @csrf
                                                             @method('DELETE')
                                                             <div class="modal-header">
@@ -75,7 +91,7 @@
                                                             </div>
                                                             <div class="modal-body">
                                                                 Yakin ingin menghapus pelanggan
-                                                                <strong>{{ $data->dari }}</strong>?
+                                                                <strong>{{ $data->id_pelanggan }}</strong>?
                                                             </div>
                                                             <div class="modal-footer">
                                                                 <button type="button" class="btn btn-secondary"
