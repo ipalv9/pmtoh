@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Pelanggan;
 
 class PelangganController extends Controller
 {
@@ -12,6 +13,9 @@ class PelangganController extends Controller
     public function index()
     {
         //
+        $nomor = 1;
+        $pelanggan = Pelanggan::all();
+        return view('layouts.pelanggan.index',compact('pelanggan','nomor'));
     }
 
     /**
@@ -19,7 +23,8 @@ class PelangganController extends Controller
      */
     public function create()
     {
-        //
+         // menampilkan form tambah
+         return view('layouts.pelanggan.create');
     }
 
     /**
@@ -27,7 +32,19 @@ class PelangganController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // proses tambah
+        $request->validate([
+        'nama' => 'required',
+        'no_handphone' => 'required',
+        'alamat' => 'required',
+    ]);
+        $pelanggan = new Pelanggan;
+        $pelanggan->nama = $request->nama;
+        $pelanggan->no_handphone = $request->no_handphone;
+        $pelanggan->alamat = $request->alamat;
+        $pelanggan->save();
+
+        return redirect('/pelanggan');
     }
 
     /**
@@ -43,7 +60,9 @@ class PelangganController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        // form edit
+        $pelanggan = Pelanggan::find($id);
+        return view('layouts.pelanggan.edit',compact('pelanggan'));
     }
 
     /**
@@ -51,7 +70,15 @@ class PelangganController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        // proses edit
+        $pelanggan = Pelanggan::find($id);
+        $pelanggan->nama = $request->nama;
+        $pelanggan->no_handphone = $request->no_handphone;
+        $pelanggan->alamat = $request->alamat;
+        $pelanggan->save();
+
+
+        return redirect('/pelanggan');
     }
 
     /**
@@ -59,6 +86,10 @@ class PelangganController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        // proses hapus
+        $pelanggan = Pelanggan::findOrFail($id);
+        $pelanggan->delete();
+
+    return redirect('/pelanggan')->with('success', 'Data berhasil dihapus');
     }
 }

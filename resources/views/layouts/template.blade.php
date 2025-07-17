@@ -5,7 +5,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Fily Admin</title>
+  <title>@yield('title')</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="{{ asset('assets/vendors/mdi/css/materialdesignicons.min.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/vendors/css/vendor.bundle.base.css') }}">
@@ -368,13 +368,13 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="">
+          <a class="nav-link" href="{{ route('pelanggan') }}">
             <i class="mdi mdi-puzzle menu-icon"></i>
             <span class="menu-title">Pelanggan</span>
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="">
+          <a class="nav-link" href="{{ route('tarif') }}">
             <i class="mdi mdi-puzzle menu-icon"></i>
             <span class="menu-title">Tarif</span>
           </a>
@@ -389,91 +389,23 @@
     </nav>
     <!-- partial -->
     <div class="main-panel">
-      <!-- <div class="content-wrapper">
-          <div class="row">
-            <div class="col-lg-12">
-              <div class="card px-3">
-                <div class="card-body">
-                  <h4 class="card-title">Todo list</h4>
-                  <div class="add-items d-flex">
-                    <input type="text" class="form-control todo-list-input" placeholder="What do you need to do today?">
-                    <button class="add btn btn-primary fw-bold todo-list-add-btn">Add</button>
-                  </div>
-                  <div class="list-wrapper">
-                    <ul class="d-flex flex-column-reverse todo-list">
-                      <li>
-                        <div class="form-check">
-                          <label class="form-check-label">
-                            <input class="checkbox" type="checkbox">
-                            Meeting with Alisa
-                          </label>
-                        </div>
-                        <i class="remove mdi mdi-close-circle-outline"></i>
-                      </li>
-                      <li class="completed">
-                        <div class="form-check">
-                          <label class="form-check-label">
-                            <input class="checkbox" type="checkbox" checked>
-                            Call John
-                          </label>
-                        </div>
-                        <i class="remove mdi mdi-close-circle-outline"></i>
-                      </li>
-                      <li>
-                        <div class="form-check">
-                          <label class="form-check-label">
-                            <input class="checkbox" type="checkbox">
-                            Create invoice
-                          </label>
-                        </div>
-                        <i class="remove mdi mdi-close-circle-outline"></i>
-                      </li>
-                      <li>
-                        <div class="form-check">
-                          <label class="form-check-label">
-                            <input class="checkbox" type="checkbox">
-                            Print Statements
-                          </label>
-                        </div>
-                        <i class="remove mdi mdi-close-circle-outline"></i>
-                      </li>
-                      <li class="completed">
-                        <div class="form-check">
-                          <label class="form-check-label">
-                            <input class="checkbox" type="checkbox" checked>
-                            Prepare for presentation
-                          </label>
-                        </div>
-                        <i class="remove mdi mdi-close-circle-outline"></i>
-                      </li>
-                      <li>
-                        <div class="form-check">
-                          <label class="form-check-label">
-                            <input class="checkbox" type="checkbox">
-                            Pick up kids from school
-                          </label>
-                        </div>
-                        <i class="remove mdi mdi-close-circle-outline"></i>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div> -->
+
+       @yield('content')
+      
       <!-- content-wrapper ends -->
       <!-- partial:../../partials/_footer.html -->
-      <footer class="footer">
+      <!-- <footer class="footer">
         <div class="d-sm-flex justify-content-center justify-content-sm-between">
           <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2024 <a
               href="https://www.bootstrapdash.com/" target="_blank">Bootstrapdash</a>. All rights reserved.</span>
           <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with <i
               class="mdi mdi-heart text-danger"></i></span>
         </div>
-      </footer>
+      </footer> -->
       <!-- partial -->
     </div>
+
+    
     <!-- main-panel ends -->
   </div>
   <!-- page-body-wrapper ends -->

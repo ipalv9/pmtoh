@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Tarif;
 
 class TarifController extends Controller
 {
@@ -12,6 +13,9 @@ class TarifController extends Controller
     public function index()
     {
         //
+        $nomor = 1;
+        $tarif = Tarif::all();
+        return view('layouts.tarif.index',compact('tarif','nomor'));
     }
 
     /**
@@ -19,15 +23,29 @@ class TarifController extends Controller
      */
     public function create()
     {
-        //
+        // menampilkan form tambah
+         return view('layouts.tarif.create');
     }
+    
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
-        //
+        // proses tambah
+        $request->validate([
+        'dari' => 'required',
+        'tujuan' => 'required'
+        'tarif' => 'required,
+    ]);
+        $tarif = new Tarif;
+        $tarif->dari = $request->dari;
+        $tarif->tujuan = $request->tujuan;
+        $tarif->tarif = $request->tarif;
+        $tarif->save();
+
+        return redirect('/tarif');
     }
 
     /**
@@ -43,7 +61,9 @@ class TarifController extends Controller
      */
     public function edit(string $id)
     {
-        //
+         // form edit
+        $tarif = Tarif::find($id);
+        return view('layouts.tarif.edit',compact('tarif'));
     }
 
     /**
@@ -51,7 +71,16 @@ class TarifController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        
+        // proses edit
+        $tarif = Tarif::find($id);
+        $tarif->dari = $request->dari;
+        $tarif->tujuan = $request->tujuan;
+        $tarif->tarif = $request->tarif;
+        $tarif->save();
+
+        return redirect('/tarif');
+
     }
 
     /**
@@ -59,6 +88,10 @@ class TarifController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        // proses hapus
+        $tarif = Tarif::findOrFail($id);
+        $tarif->delete();
+
+    return redirect('/tarif')->with('success', 'Data berhasil dihapus');
     }
 }
