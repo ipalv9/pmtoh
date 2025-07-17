@@ -22,12 +22,12 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<!-- Favicon icon -->
-	<link rel="shortcut icon" type="image/x-icon" href="images/favicon.png">
-	<link rel="stylesheet" href="vendor/chartist/css/chartist.min.css">
-    <link href="vendor/bootstrap-select/css/bootstrap-select.min.css" rel="stylesheet">
-	<link href="vendor/owl-carousel/owl.carousel.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+	<link rel="shortcut icon" type="image/x-icon" href="{{ asset('images/favicon.png')}}">
+	<link rel="stylesheet" href="{{ asset('assets/vendor/chartist/css/chartist.min.css')}}">
+    <link href="{{ asset ('assets/vendor/bootstrap-select/css/bootstrap-select.min.css')}}" rel="stylesheet">
+	<link href="{{ asset ('assets/vendor/owl-carousel/owl.carousel.css')}}" rel="stylesheet">
+    <link href="{{ asset ('css/style.css')}}" rel="stylesheet">
+	<link href="{{ asset ('assets/https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&display=swap')}}" rel="stylesheet">
 </head>
 <body>
 
@@ -1320,21 +1320,21 @@
         Scripts
     ***********************************-->
     <!-- Required vendors -->
-    <script src="vendor/global/global.min.js"></script>
-	<script src="vendor/bootstrap-select/js/bootstrap-select.min.js"></script>
-	<script src="vendor/chart-js/chart.bundle.min.js"></script>
-	<script src="vendor/owl-carousel/owl.carousel.js"></script>
+    <script src="{{ asset ('assets/vendor/global/global.min.js')}}"></script>
+	<script src="{{ asset ('assets/vendor/bootstrap-select/js/bootstrap-select.min.js')}}"></script>
+	<script src="{{ asset ('assets/vendor/chart-js/chart.bundle.min.js')}}"></script>
+	<script src="{{ asset ('assets/vendor/owl-carousel/owl.carousel.js')}}"></script>
 	
 	<!-- Chart piety plugin files -->
-    <script src="vendor/peity/jquery.peity.min.js"></script>
+    <script src="{{ asset ('assets/vendor/peity/jquery.peity.min.js')}}"></script>
 	
 	<!-- Apex Chart -->
-	<script src="vendor/apexchart/apexchart.js"></script>
+	<script src="{{ asset ('assets/vendor/apexchart/apexchart.js')}}"></script>
 	
 	<!-- Dashboard 1 -->
-	<script src="js/dashboard/dashboard-1.js"></script>
-    <script src="js/custom.min.js"></script>
-	<script src="js/deznav-init.js"></script>
+	<script src="{{ asset ('js/dashboard/dashboard-1.js')}}"></script>
+    <script src="{{ asset ('js/custom.min.js')}}"></script>
+	<script src="{{ asset ('js/deznav-init.js')}}"></script>
 	<script>
 		function carouselReview(){
 			/*  testimonial one function by = owl.carousel.js */
